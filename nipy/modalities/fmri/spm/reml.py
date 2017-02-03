@@ -113,8 +113,8 @@ def reml(sigma, components, design=None, n=1, niter=128,
 
         if X is not None:
             iCX = np.dot(iC, X)
-            Cq = npl.inv(X.T, iCX)
-            P = iC - np.dot(iCX, np.dot(Cq, iCX))
+            Cq = npl.inv(np.dot(X.T, iCX))
+            P = iC - np.dot(iCX, np.dot(Cq, iCX.T))
         else:
             P = iC
 
